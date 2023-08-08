@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-
 namespace MealTime.Models
 {
     public class Ingredient
