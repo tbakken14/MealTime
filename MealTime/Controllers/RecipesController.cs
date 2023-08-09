@@ -6,9 +6,9 @@ namespace MealTime.Controllers
 {
     public class RecipesController : Controller
     {
-        private readonly RecipeContext _db;
+        private readonly MealTimeContext _db;
 
-        public RecipesController(RecipeContext db)
+        public RecipesController(MealTimeContext db)
         {
             _db = db;
         }
@@ -33,34 +33,33 @@ namespace MealTime.Controllers
 
         public IActionResult Edit(int id)
         {
-            var recipe = _db.Recipe.Find(id);
-            return View(recipe);
+            var recipe = _db.Recipes.Find(id);
+            return View("Update", recipe);
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, Recipe recipe)
+        public IActionResult Update(Recipe recipe)
         {
             _db.Update(recipe);
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Details(int? id)
+        public IActionResult Details(int id)
         {
-            var recipe = _db.Recipe.Find(id);
+            var recipe = _db.Recipes.Find(id);
             return View(recipe);
         }
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(int id)
         {
-            var recipe = _db.Recipe.Find(id);
+            var recipe = _db.Recipes.Find(id);
             return View(recipe);
         }
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public IActionResult Destroy(Recipe recipe)
         {
-            var recipe = _context.Recipe.Find(id);
-            _db.Engineers.Remove(recipe);
+            _db.Recipes.Remove(recipe);
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }

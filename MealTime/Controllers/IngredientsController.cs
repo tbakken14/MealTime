@@ -6,9 +6,9 @@ namespace MealTime.Controllers
 {
     public class IngredientsController : Controller
     {
-        private readonly RecipeContext _db;
+        private readonly MealTimeContext _db;
 
-        public IngredientsController(RecipeContext db)
+        public IngredientsController(MealTimeContext db)
         {
             _db = db;
         }
@@ -58,10 +58,8 @@ namespace MealTime.Controllers
             return View(ingredient);
         }
 
-        public ActionResult Destroy(int id)
+        public ActionResult Destroy(Ingredient ingredient)
         {
-            Ingredient ingredient = _db.Ingredients
-                .FirstOrDefault(model => model.IngredientId == id);
             _db.Remove(ingredient);
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));

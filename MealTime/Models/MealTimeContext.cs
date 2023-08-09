@@ -2,10 +2,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MealTime.Models
 {
-    public class RecipeContext : DbContext
+    public class MealTimeContext : DbContext
     {
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
-        public RecipeContext(DbContextOptions options) : base(options) { }
+        public MealTimeContext(DbContextOptions options) : base(options) { }
     }
 }

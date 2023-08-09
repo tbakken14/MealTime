@@ -1,13 +1,18 @@
-@using MealTime.Models;
-@model MealTime.Models.Recipe;
+@{
+    Layout = "_Layout";
+}
 
-<h2>Create a Recipe</h2>
+<h2>Recipes</h2>
+<hr>
+<h3>New Ingredient</h3>
 
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label asp-for="Name">Name of Recipe:</label>
-        <input asp-for="Name" class="form-control">
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Create</button>
-</form>
+@model MealTime.Models.Recipe
+
+@using (Html.BeginForm("Create", "Recipes"))
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name, new {required="true"})
+    @Html.LabelFor(model => model.CookTime)
+    @Html.TextBoxFor(model => model.CookTime, new {required="true", type="number"})
+    <input type="submit" value="Add new recipe" />
+}

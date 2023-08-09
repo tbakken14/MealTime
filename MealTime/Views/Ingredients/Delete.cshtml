@@ -8,7 +8,7 @@
 
 @model MealTime.Models.Ingredient
 
-@using (Html.BeginForm("Destroy", "Ingredients", new { id = Model.IngredientId }))
+@using (Html.BeginForm("Destroy", "Ingredients"))
 {
     @Html.HiddenFor(model => model.IngredientId)
     <input type="submit" value="Delete Ingredient" />

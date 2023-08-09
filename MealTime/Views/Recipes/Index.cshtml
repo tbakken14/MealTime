@@ -5,6 +5,9 @@
 }
 
 <h2>Recipes</h2>
+<hr>
+<h3>Recipe Navigator</h3>
+
 @Html.ActionLink("New Recipe", "Create")
 
 @if (Model.Count == 0)
@@ -13,5 +16,6 @@
 }
 @foreach (Recipe recipe in Model)
 {
-    <p>Model.Name</p>
+    <br>
+    @Html.ActionLink(recipe.Name, "Details", new {id = recipe.RecipeId})
 }
