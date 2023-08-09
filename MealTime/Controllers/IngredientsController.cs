@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MealTime.Models;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace MealTime.Controllers
 {
@@ -33,6 +34,8 @@ namespace MealTime.Controllers
         public ActionResult Details(int id)
         {
             Ingredient ingredient = _db.Ingredients
+                .Include(model => model.RecipeIngredients)
+                .ThenInclude(join => join.Recipe)
                 .FirstOrDefault(model => model.IngredientId == id);
             return View(ingredient);
         }

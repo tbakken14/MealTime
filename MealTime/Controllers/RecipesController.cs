@@ -56,7 +56,6 @@ namespace MealTime.Controllers
             return View(recipe);
         }
 
-        [HttpPost]
         public IActionResult Destroy(Recipe recipe)
         {
             _db.Recipes.Remove(recipe);

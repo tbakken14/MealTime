@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace MealTime.Models
 {
@@ -8,5 +9,6 @@ namespace MealTime.Models
         [Column(TypeName = "varchar(255)")]
         public string Name { get; set; }
         public int CookTime { get; set; }
+        public List<RecipeIngredient> RecipeIngredients { get; }
     }
 }
