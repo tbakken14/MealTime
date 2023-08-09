@@ -1,5 +1,21 @@
+@using MealTime.Models
+
 @{
     Layout = "_Layout";
 }
 
 <h2>Ingredients</h2>
+<hr>
+<h3>Ingredient Navigator</h3>
+
+@Html.ActionLink("New Ingredient", "New")
+
+@if (Model.Count == 0)
+{
+    <p>No ingredients</p>
+}
+@foreach (Ingredient ingredient in Model)
+{
+    <br>
+    @Html.ActionLink(ingredient.Name, "Details", new {id = ingredient.IngredientId})
+}

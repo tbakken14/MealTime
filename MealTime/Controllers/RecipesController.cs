@@ -17,7 +17,7 @@ namespace MealTime.Controllers
             var recipes = _db.Recipes.ToList();
             return View(recipes);
         }
-        /**
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -26,9 +26,43 @@ namespace MealTime.Controllers
         [HttpPost]
         public IActionResult Create(Recipe recipe)
         {
-            //_context
+            _db.Recipes.Add(recipe);
+            _db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
-        **/
+
+        public IActionResult Edit(int id)
+        {
+            var recipe = _db.Recipe.Find(id);
+            return View(recipe);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, Recipe recipe)
+        {
+            _db.Update(recipe);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Details(int? id)
+        {
+            var recipe = _db.Recipe.Find(id);
+            return View(recipe);
+        }
+        public IActionResult Delete(int? id)
+        {
+            var recipe = _db.Recipe.Find(id);
+            return View(recipe);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var recipe = _context.Recipe.Find(id);
+            _db.Engineers.Remove(recipe);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
