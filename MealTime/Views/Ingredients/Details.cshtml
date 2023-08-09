@@ -1,0 +1,13 @@
+@{
+    Layout = "_Layout";
+}
+
+<h2>Ingredients</h2>
+<hr>
+<h3>View Ingredient</h3>
+@model MealTime.Models.Ingredient
+<p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+
+@Html.ActionLink("Edit Ingredient", "Edit", new {id = Model.IngredientId})
+<br>
+@Html.ActionLink("Delete Ingredient", "Delete", new {id = Model.IngredientId})

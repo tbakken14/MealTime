@@ -1,0 +1,17 @@
+@{
+    Layout = "_Layout";
+}
+
+<h2>Ingredients</h2>
+<hr>
+<h3>Edit Ingredient</h3>
+
+@model MealTime.Models.Ingredient
+
+@using (Html.BeginForm("Update", "Ingredients"))
+{
+    @Html.HiddenFor(model => model.IngredientId)
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name, new {required="true"})
+    <input type="submit" value="Update item" />
+}

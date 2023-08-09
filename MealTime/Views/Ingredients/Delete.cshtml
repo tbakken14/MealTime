@@ -1,0 +1,15 @@
+@{
+    Layout = "_Layout";
+}
+
+<h2>Ingredients</h2>
+<hr>
+<h3>Delete Ingredient</h3>
+
+@model MealTime.Models.Ingredient
+
+@using (Html.BeginForm("Destroy", "Ingredients", new { id = Model.IngredientId }))
+{
+    @Html.HiddenFor(model => model.IngredientId)
+    <input type="submit" value="Delete Ingredient" />
+}
