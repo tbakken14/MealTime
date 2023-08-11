@@ -3,3 +3,12 @@
 }
 
 <h2>Welcome to Meal Time</h2>
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage your items.</p>
+}
+else
+{
+    <p>Hello @User.Identity.Name</p>
+}

@@ -13,6 +13,7 @@
     @Html.HiddenFor(model => model.RecipeId)
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name, new {required="true"})
+    <br>
     @Html.LabelFor(model => model.CookTime)
     @Html.TextBoxFor(model => model.CookTime, new {required="true", type="number"})
     <input type="submit" value="Update item" />

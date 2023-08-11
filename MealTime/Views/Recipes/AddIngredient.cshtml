@@ -1,0 +1,20 @@
+@model MealTime.Models.Recipe
+@using MealTime.Models
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Recipes</h2>
+<hr>
+<h3>Add an ingredient to: @Html.DisplayFor(model => model.Name)</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.RecipeId)
+
+    @Html.Label("Select ingredient")
+    @Html.DropDownList("IngredientId")
+
+    <input type="submit" value="Add Ingredient" />
+}

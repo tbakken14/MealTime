@@ -1,3 +1,6 @@
+@model MealTime.Models.Recipe
+@using MealTime.Models
+
 @{
     Layout = "_Layout";
 }
@@ -5,10 +8,21 @@
 <h2>Recipes</h2>
 <hr>
 <h3>View Recipe</h3>
-@model MealTime.Models.Recipe
+
 <p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
 <p>@Html.DisplayNameFor(model => model.CookTime): @Html.DisplayFor(model => model.CookTime)</p>
-
 @Html.ActionLink("Edit Recipe", "Edit", new {id = Model.RecipeId})
 <br>
 @Html.ActionLink("Delete Recipe", "Delete", new {id = Model.RecipeId})
+<br>
+<br>
+<h4>Ingredients</h4>
+@if (@Model.RecipeIngredients.Count == 0)
+{
+    <p>Recipe does not have any ingredients.</p>
+}
+@foreach (RecipeIngredient recipeIngredient in Model.RecipeIngredients)
+{
+    <p>@recipeIngredient.Ingredient.Name</p>
+}
+@Html.ActionLink("Add Ingredient", "AddIngredient", new {id = Model.RecipeId})

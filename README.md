@@ -22,7 +22,7 @@ _A website to track recipes and create meal plans and shopping lists._
 * _Clone the repository_
 * _In the bash command line:_
   * _Navigate to the top-level directory_
-  * _Create appsettings.json with: touch appsettings.json_
+  * _Create `appsettings.json` with: ```bash $touch appsettings.json_
     * _Open the file in a text editor and copy the following line_
       * _\{"ConnectionStrings": \{"DefaultConnection": "Server=localhost;Port=3306;database=\[DB_NAME\];uid=\[USERNAME\];pwd=\[PASSWORD\];"\}\}_
     * _Replace \[DB_NAME\] with a database name_
