@@ -1,8 +1,8 @@
-# _Recipe_
+# _MealTime_
 
 #### By _**Thomas Bakken, Elijah Cartwright**_
 
-#### _A web application for recipes._
+#### _A web application for meal planning._
 
 ## Technologies Used
 
@@ -28,9 +28,9 @@ _A website to track recipes and create meal plans and shopping lists._
     * _Replace \[DB_NAME\] with a database name_
     * _Replace \[USERNAME\] with your MySQL username_
     * _Replace DB_NAME with your MySQL password_
-  * _Enter command: $ dotnet restore Recipe_
+  * _Enter command: $ dotnet restore MealTime_
   * _Initialize database with: $ dotnet ef database update_
-  * _Run application with command: $ dotnet run --project Recipe_
+  * _Run application with command: $ dotnet run --project MealTime_
 
 
 ## Known Bugs
